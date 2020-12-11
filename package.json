@@ -1,0 +1,22 @@
+{
+  "name": "lionfish",
+  "version": "1.0.0",
+  "description": "Im elaina :) hello hi its abby",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cgortonpenguinhall/lionfish.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cgortonpenguinhall/lionfish/issues"
+  },
+  "homepage": "https://github.com/cgortonpenguinhall/lionfish#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
