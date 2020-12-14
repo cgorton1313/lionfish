@@ -17,5 +17,5 @@ app.listen(config.app.port, () => {
 });
 
 app.get('/sighting*', async function (req, res) {
-    res.json([{ name: "Bob" }]);
+    res.json(lionfishData.getData);
 });
