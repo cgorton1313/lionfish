@@ -12,10 +12,6 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname + '/public/index.html'));
 });
 
-// app.listen(55555, () => {
-//     console.log("Lionfish server listening on port 55555");
-// });
-
 app.listen(config.app.port, () => {
     console.log(`Lionfish server listening on port ${ config.app.port }`);
 });
