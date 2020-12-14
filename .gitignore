@@ -1,2 +1,5 @@
 # Dependency directories
 node_modules/
+
+# this file has sensitive data
+config.js
