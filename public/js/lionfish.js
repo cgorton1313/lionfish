@@ -1,21 +1,12 @@
-let chart = L.map('chart', {
-    minZoom: 0,
-    maxZoom: 20
-}).setView([30, -80], 10);
 
-L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/Ocean_Basemap/MapServer/tile/{z}/{y}/{x}', {
-}).addTo(chart);
 
 getUserPosition();
-
-
-
 
 function getUserPosition() {
     if (navigator.geolocation) {
         return navigator.geolocation.getCurrentPosition(loadChart, showError);
     } else {
-    console.log("Geolocation is not supported by this browser.");
+    showError();
     }
     }
 
@@ -23,6 +14,12 @@ function getUserPosition() {
         // use zoom level 10 if geo is on
         let userLat = position.coords.latitude;
         let userLon = position.coords.longitude;
+        let chart = L.map('chart', {
+            minZoom: 0,
+            maxZoom: 20
+        }).setView([30, -80], 10);
+        L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/Ocean_Basemap/MapServer/tile/{z}/{y}/{x}', {
+        }).addTo(chart);
         }
 
     function showError(error) {
