@@ -7,9 +7,15 @@ doSomething(data);
 }); 
 
 function doSomething(data) {
-    for (i = 0; i < data.length; i++) {
-        if (data.inculdes('depth')) {
-            console.log(data);
-        }
-    }
+    // for (i = 0; i < data.length; i++) {
+    //     if (data.inculdes('depth')) {
+    //         console.log(data);
+    //     }
+    // }
+
+    for (i = 0; i < data.day.length; i++) {
+        x += data.day[i] + "<br>";
+      }
+
+      //console.log(data);
 }
