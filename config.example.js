@@ -1,6 +1,12 @@
 const config = {
     app: {
-        port: 12345
+        port: 55555
+    },
+    db: {
+        host: ' ',
+        user: ' ',
+        password: ' ',
+        database: ' '
     }
 };
 
