@@ -1,4 +1,4 @@
-
+let chart;
 
 getUserPosition();
 
@@ -14,7 +14,7 @@ function getUserPosition() {
         // use zoom level 10 if geo is on
         let userLat = position.coords.latitude;
         let userLon = position.coords.longitude;
-        let chart = L.map('chart', {
+         chart = L.map('chart', {
             minZoom: 0,
             maxZoom: 20
         }).setView([userLat, userLon], zoomLevel);
