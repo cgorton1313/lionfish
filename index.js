@@ -16,8 +16,13 @@ app.get('/', (req, res) => {
 });
 
 app.get('/sightings', async function (req, res) {
-    res.json(lionfishData.getSightings());
+    res.json(await lionfishData.getSightings());
 });
+
+// app.get('/sighting*', async function (req, res) {
+//     req.query.id;
+//     res.json(lionfishData.getSighting());
+// });
 
 app.listen(config.app.port, () => {
     console.log(`Lionfish server listening on port ${ config.app.port }`);
