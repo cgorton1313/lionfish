@@ -15,8 +15,8 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname + '/public/index.html'));
 });
 
-app.get('/sighting*', async function (req, res) {
-    res.json(lionfishData.getData());
+app.get('/sightings', async function (req, res) {
+    res.json(lionfishData.getSightings());
 });
 
 app.listen(config.app.port, () => {
