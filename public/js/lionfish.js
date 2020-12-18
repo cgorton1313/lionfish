@@ -1,4 +1,4 @@
-
+let chart;
 
 getUserPosition();
 
@@ -10,14 +10,14 @@ function getUserPosition() {
     }
     }
 
-    function loadChart(position, zoomLevel = 10) { 
+    function loadChart(position, zoomLevel = 13) { 
         // use zoom level 10 if geo is on
         let userLat = position.coords.latitude;
         let userLon = position.coords.longitude;
-        let chart = L.map('chart', {
+         chart = L.map('chart', {
             minZoom: 0,
             maxZoom: 20
-        }).setView([userLat, userLon], 13);
+        }).setView([userLat, userLon], zoomLevel);
         L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/Ocean_Basemap/MapServer/tile/{z}/{y}/{x}', {
         }).addTo(chart);
         }
@@ -37,8 +37,8 @@ function getUserPosition() {
             console.log("An unknown error occurred.");
             break;
             }
-            let position = { coords: { latitude: 35, longitude: -71 } };
-            loadChart(position, 4); // if user doesn't have or allow geo, show default position and zoom
+            let position = { coords: { latitude: 27, longitude: -80 } };
+            loadChart(position, 10); // if user doesn't have or allow geo, show default position and zoom
             }
             
             
