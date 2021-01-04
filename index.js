@@ -1,11 +1,9 @@
 const config = require(__dirname + '/config.js');
-const lionfishData = require(__dirname + '/lionfishData.js');
+const lionfishData = require(__dirname + '/lionfishData2.js');
 const express = require('express');
 const path = require('path');
 
 const app = express();
-
-console.log(config);
 
 // send all the static stuff
 app.use(express.static(path.join(__dirname + '/public')));

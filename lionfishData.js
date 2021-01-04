@@ -8,6 +8,12 @@ async function getSightings() {
     return result;
 }
 
+async function getSighting(id) {
+    let sql = 'SELECT * FROM `penguinh_lionfish`.`sightings` WHERE sighting_id = '+ id;
+    let result = await getQueryData(sql);
+    return result;
+}
+
 // this function will connect to the database, query, disconnect, and return the query result
 async function getQueryData(sql) {
     // this statement uses the values from config.js
@@ -47,5 +53,5 @@ async function getQueryData(sql) {
 }
 
 module.exports = {
-    getSightings
+    getSighting
 }
