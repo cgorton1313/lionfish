@@ -1,5 +1,5 @@
 const config = require(__dirname + '/config.js');
-const lionfishData = require(__dirname + '/lionfishData2.js');
+const lionfishData = require(__dirname + '/lionfishData.js');
 const express = require('express');
 const path = require('path');
 
@@ -18,8 +18,7 @@ app.get('/sightings', async function (req, res) {
 });
 
 app.get('/sighting', async function (req, res) {
-    req.query.id;
-    res.json(lionfishData.getSighting());
+    res.json(await lionfishData.getSighting(req.query.id));
 });
 
 app.listen(config.app.port, () => {
