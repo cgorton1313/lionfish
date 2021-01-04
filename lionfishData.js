@@ -11,7 +11,8 @@ async function getSightings() {
 async function getSighting(id) {
     let sql = 'SELECT * FROM `penguinh_lionfish`.`sightings` WHERE sighting_id = '+ id;
     let result = await getQueryData(sql);
-    return result;
+    console.log(result);
+    return result[0];
 }
 
 // this function will connect to the database, query, disconnect, and return the query result
