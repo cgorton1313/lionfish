@@ -2,11 +2,17 @@
 <html>
 
 <head>
-   <link rel="stylesheet" href = "css/lionfish-style.css">
    <title>Home Page</title>
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-light-blue.css">
+   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+      crossorigin=""></script>
+   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+      crossorigin="" />
+    <link rel="stylesheet" href = "css/lionfish-styles.css">
 </head>
 
 <body>
@@ -32,6 +38,10 @@
       <a href="#" class="w3-bar-item w3-button">Link 3</a>
     </div>
     
+    <div style= "height: calc(100% - 60px);">
+      <div id="chart"></div>
+    </div>
+
 
     <script>
       function myFunction() {
@@ -44,7 +54,7 @@
       }
       </script>
     
-    <script rel="stylesheet" href = "js/lionfish.js"></script>
+    <script src= "js/lionfish.js"></script>
 
 
 </body>
