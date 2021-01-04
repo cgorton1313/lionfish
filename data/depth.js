@@ -13,9 +13,9 @@ function doSomething(data) {
     //     }
     // }
 
-    for (i = 0; i < data.day.length; i++) {
-        x += data.day[i] + "<br>";
-      }
+    // for (i = 0; i < data.day.length; i++) {
+    //     x += data.day[i] + "<br>";
+    //   }
 
-      //console.log(data);
+      console.log(data);
 }
