@@ -2,6 +2,8 @@ let chart;
 
 getUserPosition();
 
+
+
 function getUserPosition() {
     if (navigator.geolocation) {
         return navigator.geolocation.getCurrentPosition(loadChart, showError);
@@ -21,6 +23,7 @@ function loadChart(position, zoomLevel = 13) {
     L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/Ocean_Basemap/MapServer/tile/{z}/{y}/{x}', {
     }).addTo(chart);
     L.marker([userLat, userLon]).addTo(chart);
+    getSightings().then(putSightingsOnChart);
 }
 
 function showError(error) {
@@ -42,3 +45,17 @@ function showError(error) {
     loadChart(position, 10); // if user doesn't have or allow geo, show default position and zoom
 }
 
+async function getSightings() {
+    let response = await fetch('./sightings');
+    let sightings = await response.json();
+    console.log(sightings);
+    return sightings;
+}
+
+function putSightingsOnChart(sightings) {
+
+    for (i = 0; i < 100; i++) {
+        L.marker([sightings[i].Latitude, sightings[i].Longitude]).addTo(chart);
+    }
+
+}    
