@@ -9,9 +9,12 @@ async function getSightings() {
 }
 
 async function getSighting(id) {
-    let sql = 'SELECT * FROM `penguinh_lionfish`.`sightings` WHERE sighting_id = '+ id;
+    //let sql = 'SELECT * FROM `penguinh_lionfish`.`sightings` WHERE sighting_id = '+ id;
+    let sql = `
+        SELECT *
+        FROM penguinh_lionfish.sightings
+        WHERE sighting_id =  `+ id;
     let result = await getQueryData(sql);
-    console.log(result);
     return result[0];
 }
 
