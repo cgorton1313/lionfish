@@ -2,59 +2,64 @@
 <html>
 
 <head>
-   <title>Home Page</title>
-   <meta name="viewport" content="width=device-width, initial-scale=1">
-   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-   <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-light-blue.css">
-   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-      crossorigin=""></script>
-   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-      crossorigin="" />
-    <link rel="stylesheet" href = "css/lionfish-styles.css">
+  <title>Home Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-light-blue.css">
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin="" />
+  <link rel="stylesheet" href="css/lionfish-styles.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css">
+  <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+  <meta charset="utf-8">
 </head>
 
 <body>
 
-   <div class="w3-container w3-theme">
-      <h1>Lionfish Tracker</h1>
-   </div>
+  <div class="w3-container w3-theme">
+    <h1>Lionfish Tracker</h1>
+  </div>
 
-   <!-- hide top row of nav bar -->
-   <!-- add color theme to all bars -->
+  <!-- hide top row of nav bar -->
+  <!-- add color theme to all bars -->
 
-   <div class="w3-bar w3-theme-d4">
-      <a href="#" class="w3-bar-item w3-button">Home</a>
-      <a href="#" class="w3-bar-item w3-button w3-hide-small">Link 1</a>
-      <a href="#" class="w3-bar-item w3-button w3-hide-small">Link 2</a>
-      <a href="#" class="w3-bar-item w3-button w3-hide-small">Link 3</a>
-      <a href="javascript:void(0)" class="w3-bar-item w3-button w3-theme-d4 w3-right w3-hide-large w3-hide-medium" onclick="myFunction()">&#9776;</a>
-    </div>
-    
-    <div id="demo" class="w3-bar-block w3-theme-14 w3-hide w3-hide-large w3-hide-medium">
-      <a href="#" class="w3-bar-item w3-button">Link 1</a>
-      <a href="#" class="w3-bar-item w3-button">Link 2</a>
-      <a href="#" class="w3-bar-item w3-button">Link 3</a>
-    </div>
-    
-    <div style= "height: calc(100% - 60px);">
-      <div id="chart"></div>
-    </div>
+  <div class="w3-bar w3-theme-d4">
+    <a href="#" class="w3-bar-item w3-button">Home</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small">Link 1</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small">Link 2</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small">Link 3</a>
+    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-theme-d4 w3-right w3-hide-large w3-hide-medium"
+      onclick="myFunction()">&#9776;</a>
+  </div>
+
+  <div id="demo" class="w3-bar-block w3-theme-14 w3-hide w3-hide-large w3-hide-medium">
+    <a href="#" class="w3-bar-item w3-button">Link 1</a>
+    <a href="#" class="w3-bar-item w3-button">Link 2</a>
+    <a href="#" class="w3-bar-item w3-button">Link 3</a>
+  </div>
+
+  <div style="height: calc(100% - 60px);">
+    <div id="chart"></div>
+  </div>
 
 
-    <script>
-      function myFunction() {
-        var x = document.getElementById("demo");
-        if (x.className.indexOf("w3-show") == -1) {
-          x.className += " w3-show";
-        } else { 
-          x.className = x.className.replace(" w3-show", "");
-        }
+  <script>
+    function myFunction() {
+      var x = document.getElementById("demo");
+      if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+      } else {
+        x.className = x.className.replace(" w3-show", "");
       }
-      </script>
-    
-    <script src= "js/lionfish.js"></script>
+    }
+  </script>
+
+  <script src="js/lionfish.js"></script>
 
 
 </body>
