@@ -53,9 +53,15 @@ async function getSightings() {
 }
 
 function putSightingsOnChart(sightings) {
-
-    for (i = 0; i < 100; i++) {
-        L.marker([sightings[i].Latitude, sightings[i].Longitude]).addTo(chart);
+    let markers = L.markerClusterGroup({
+        showCoverageOnHover: true,
+        zoomToBoundsOnClick: true,
+        spiderfyOnMaxZoom: false,
+        removeOutsideVisibleBounds: true
+    });
+    for (let i = 0; i < sightings.length; i++) {
+        let marker = L.marker([sightings[i].Latitude, sightings[i].Longitude]);
+        markers.addLayer(marker);
     }
-
+    chart.addLayer(markers);
 }    
