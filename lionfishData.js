@@ -10,10 +10,7 @@ async function getSightings() {
 
 async function getSighting(id) {
     //let sql = 'SELECT * FROM `penguinh_lionfish`.`sightings` WHERE sighting_id = '+ id;
-    let sql = `
-        SELECT *
-        FROM penguinh_lionfish.sightings
-        WHERE sighting_id =  `+ id;
+    let sql = `SELECT sighting_id, SpecimenNumber, Country, State, Locality, Latitude, Longitude, Source, Accuracy, DrainageName, HUC8Number, Year, Month, Day, Status, Comments FROM sightings WHERE sighting_id =  `+ id;
     let result = await getQueryData(sql);
     return result[0];
 }
