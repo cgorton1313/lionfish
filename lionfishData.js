@@ -60,5 +60,5 @@ async function getQueryData(sql) {
 }
 
 module.exports = {
-    getSighting, getSightings, get10ClosestSightings()
+    getSighting, getSightings, get10ClosestSightings
 }
