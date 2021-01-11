@@ -10,14 +10,16 @@ async function getSightings() {
 
 async function getSighting(id) {
     //let sql = 'SELECT * FROM `penguinh_lionfish`.`sightings` WHERE sighting_id = '+ id;
-    let sql = `SELECT sighting_id, SpecimenNumber, Country, State, Locality, Latitude, Longitude, Source, Accuracy, DrainageName, HUC8Number, Year, Month, Day, Status, Comments FROM sightings WHERE sighting_id =  `+ id;
+    let sql = `SELECT sighting_id, SpecimenNumber, Country, State, Locality, Latitude, Longitude, Source, Accuracy, DrainageName, HUC8Number, Year, Month, Day, Status, Comments, record_type FROM sightings WHERE sighting_id =  `+ id;
     let result = await getQueryData(sql);
     return result[0];
 }
 
 async function get10ClosestSightings(userLat, userLon) {
     let sql = `ROUND((((acos(sin((${userLat} * pi()/180)) * sin((Latitude * pi()/180)) + cos((${userLat} * pi()/180)) * cos((Latitude * pi()/180)) * cos(((${userLon} - Longitude) * pi()/180)))) * 180/pi()) * 60), 2)`
-    let result = await get10ClosestSightings(userLat, userLo);
+    let result = await get10ClosestSightings(sql);
+    // select  userLat, userLon, (userLat + userLon) as distance
+    //sort distance and then get the 10 closest
     return result[0];
 }
 
