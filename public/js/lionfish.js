@@ -24,6 +24,7 @@ function loadChart(position, zoomLevel = 13) {
     }).addTo(chart);
     L.marker([userLat, userLon]).addTo(chart);
     getSightings().then(putSightingsOnChart);
+    document.getElementById("locationMessage").setAttribute('class', 'w3-hide');
 }
 
 function showError(error) {
