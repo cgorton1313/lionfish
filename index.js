@@ -17,6 +17,10 @@ app.get('/sightings', async function (req, res) {
     res.json(await lionfishData.getSightings());
 });
 
+app.get('/nearestSightings', async function (req, res) {
+    res.json(await lionfishData.get10ClosestSightings(req.query.lat, req.query.lon));
+});
+
 app.get('/sighting', async function (req, res) {
     res.json(await lionfishData.getSighting(req.query.id));
 });

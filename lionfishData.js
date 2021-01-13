@@ -16,11 +16,11 @@ async function getSighting(id) {
 }
 
 async function get10ClosestSightings(userLat, userLon) {
-    let sql = `ROUND((((acos(sin((${userLat} * pi()/180)) * sin((Latitude * pi()/180)) + cos((${userLat} * pi()/180)) * cos((Latitude * pi()/180)) * cos(((${userLon} - Longitude) * pi()/180)))) * 180/pi()) * 60), 2)`
-    let result = await get10ClosestSightings(sql);
-    // select  userLat, userLon, (userLat + userLon) as distance
-    //sort distance and then get the 10 closest
-    return result[0];
+    let sql = `
+        SELECT sighting_id, Latitude, Longitude, ROUND((((acos(sin((${userLat} * pi()/180)) * sin((Latitude * pi()/180)) + cos((${userLat} * pi()/180)) * cos((Latitude * pi()/180)) * cos(((${userLon} - Longitude) * pi()/180)))) * 180/pi()) * 60), 2) as distance
+        FROM sightings ORDER BY distance ASC LIMIT 10`;
+    let result = await getQueryData(sql);
+    return result;
 }
 
 // this function will connect to the database, query, disconnect, and return the query result
