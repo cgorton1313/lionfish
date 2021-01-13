@@ -42,7 +42,6 @@ async function getQueryData(sql) {
         }
     });
 
-    // this is magic. don't ask.
     let query = util.promisify(connection.query).bind(connection); // node native promisify
 
     // try to query the database, handle errors if they happen
