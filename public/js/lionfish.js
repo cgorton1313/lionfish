@@ -49,7 +49,6 @@ function showError(error) {
 async function getSightings() {
     let response = await fetch('./sightings');
     let sightings = await response.json();
-    console.log(sightings);
     return sightings;
 }
 
@@ -62,12 +61,14 @@ function putSightingsOnChart(sightings) {
     });
     for (let i = 0; i < sightings.length; i++) {
         let marker = L.marker([sightings[i].Latitude, sightings[i].Longitude], {sightingId: sightings[i].sighting_id});
-        marker.on('click', doSomething);
+        marker.on('click', getSightingInfo);
         markers.addLayer(marker);
     }
     chart.addLayer(markers);
 }
 
-function doSomething() {
-    console.log(this.options.sightingId);
+async function getSightingInfo() {
+    let response = await fetch('./sighting?id=' + this.options.sightingId);
+    let sighting = await response.json();
+    console.log(sighting);
 }
