@@ -24,6 +24,7 @@ function loadChart(position, zoomLevel = 13) {
     }).addTo(chart);
     L.marker([userLat, userLon]).addTo(chart);
     getSightings().then(putSightingsOnChart);
+    document.getElementById("locationMessage").setAttribute('class', 'w3-hide');
 }
 
 function showError(error) {
@@ -60,8 +61,13 @@ function putSightingsOnChart(sightings) {
         removeOutsideVisibleBounds: true
     });
     for (let i = 0; i < sightings.length; i++) {
-        let marker = L.marker([sightings[i].Latitude, sightings[i].Longitude]);
+        let marker = L.marker([sightings[i].Latitude, sightings[i].Longitude], {sightingId: sightings[i].sighting_id});
+        marker.on('click', doSomething);
         markers.addLayer(marker);
     }
     chart.addLayer(markers);
-}    
+}
+
+function doSomething() {
+    console.log(this.options.sightingId);
+}
