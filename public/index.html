@@ -30,7 +30,7 @@
 
   <div class="w3-bar w3-theme-d4">
     <a href="#" class="w3-bar-item w3-button">Home</a>
-    
+
     <a href="#" class="w3-bar-item w3-button w3-hide-small">Link 2</a>
     <a href="#" class="w3-bar-item w3-button w3-hide-small">Link 3</a>
     <a href="javascript:void(0)" class="w3-bar-item w3-button w3-theme-d4 w3-right w3-hide-large w3-hide-medium"
@@ -52,35 +52,35 @@
   class="w3-button">Open Modal</button> -->
 
   <!-- The Modal -->
-<div id="sightingModal" class="w3-modal">
-  <div class="w3-modal-content">
-    <div class="w3-container">
-      <span onclick="document.getElementById('sightingModal').style.display='none'"
-      class="w3-button w3-display-topright">&times;</span>
-      <p>Some text in the Modal..</p>
-      <p>Some text in the Modal..</p>
+  <div id="sightingModal" class="w3-modal">
+    <div class="w3-modal-content">
+      <div class="w3-container">
+        <span onclick="document.getElementById('sightingModal').style.display='none'"
+          class="w3-button w3-display-topright">&times;</span>
+        <div id="modalText">
+
+        </div>
+      </div>
     </div>
-  </div>
-</div>
 
-  <div style="height: calc(100% - 60px);">
-    <div id="chart"></div>
-  </div>
+    <div style="height: calc(100% - 60px);">
+      <div id="chart"></div>
+    </div>
 
- 
 
-  <script>
-    function myFunction() {
-      var x = document.getElementById("demo");
-      if (x.className.indexOf("w3-show") == -1) {
-        x.className += " w3-show";
-      } else {
-        x.className = x.className.replace(" w3-show", "");
+
+    <script>
+      function myFunction() {
+        var x = document.getElementById("demo");
+        if (x.className.indexOf("w3-show") == -1) {
+          x.className += " w3-show";
+        } else {
+          x.className = x.className.replace(" w3-show", "");
+        }
       }
-    }
-  </script>
+    </script>
 
-  <script src="js/lionfish.js"></script>
+    <script src="js/lionfish.js"></script>
 
 
 </body>

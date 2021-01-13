@@ -60,7 +60,7 @@ function putSightingsOnChart(sightings) {
         removeOutsideVisibleBounds: true
     });
     for (let i = 0; i < sightings.length; i++) {
-        let marker = L.marker([sightings[i].Latitude, sightings[i].Longitude], {sightingId: sightings[i].sighting_id});
+        let marker = L.marker([sightings[i].Latitude, sightings[i].Longitude], { sightingId: sightings[i].sighting_id });
         marker.on('click', getSightingInfo);
         markers.addLayer(marker);
     }
@@ -71,4 +71,7 @@ async function getSightingInfo() {
     let response = await fetch('./sighting?id=' + this.options.sightingId);
     let sighting = await response.json();
     console.log(sighting);
+    // document.getElementById('sightingModal').style.display = 'block';
+    // let modalContent = 'Latitude: ' + this.options.sighting.latitude + 'Longitude: ' + this.options.sighting.longitude;
+    // document.getElementById('modalP').innerHTML = modalContent;
 }
