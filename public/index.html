@@ -31,16 +31,13 @@
   <div class="w3-bar w3-theme-d4">
     <a href="#" class="w3-bar-item w3-button">Home</a>
 
-    <a href="#" class="w3-bar-item w3-button w3-hide-small">Link 2</a>
-    <a href="#" class="w3-bar-item w3-button w3-hide-small">Link 3</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small" onclick= "showClosestSightings()">Find Fish</a>
     <a href="javascript:void(0)" class="w3-bar-item w3-button w3-theme-d4 w3-right w3-hide-large w3-hide-medium"
       onclick="myFunction()">&#9776;</a>
   </div>
 
   <div id="demo" class="w3-bar-block w3-theme-14 w3-hide w3-hide-large w3-hide-medium">
-    <a href="#" class="w3-bar-item w3-button">Link 1</a>
-    <a href="#" class="w3-bar-item w3-button">Link 2</a>
-    <a href="#" class="w3-bar-item w3-button">Link 3</a>
+    <a href="#" class="w3-bar-item w3-button"onclick= "showClosestSightings()">Find Fish</a>
   </div>
 
   <div id="locationMessage" class="w3-show w3-container w3-panel">
@@ -64,70 +61,22 @@
     </div>
   </div>
 
-  <!-- <div style="height: calc(100% - 60px);">
-    <div id="chart"></div>
-  </div> -->
-
-    <div>
-      <table class="w3-table">
-        <tr>
-          <th>sighting</th>
-          <th>lat</th>
-          <th>lon</th>
-        </tr>
-        <tr>
-          <td> sighting 1</td>
-          <td>647368</td>
-          <td>637289</td>
-        </tr>
-        <tr>
-          <td> sighting 2</td>
-          <td>647368</td>
-          <td>637289</td>
-        </tr>
-        <tr>
-          <td> sighting 3</td>
-          <td>647368</td>
-          <td>637289</td>
-        </tr>
-        <tr>
-          <td> sighting 4</td>
-          <td>647368</td>
-          <td>637289</td>
-        </tr>
-        <tr>
-          <td> sighting 5</td>
-          <td>647368</td>
-          <td>637289</td>
-        </tr>
-        <tr>
-          <td> sighting 6</td>
-          <td>647368</td>
-          <td>637289</td>
-        </tr>
-        <tr>
-          <td> sighting 7</td>
-          <td>647368</td>
-          <td>637289</td>
-        </tr>
-        <tr>
-          <td> sighting 8</td>
-          <td>647368</td>
-          <td>637289</td>
-        </tr>
-        <tr>
-          <td> sighting 9</td>
-          <td>647368</td>
-          <td>637289</td>
-        </tr>
-        <tr>
-          <td> sighting 10</td>
-          <td>647368</td>
-          <td>637289</td>
-        </tr>
-      </table>
+    <!-- The Modal -->
+    <div id="nearestSighting" class="w3-modal">
+      <div class="w3-modal-content">
+        <div class="w3-container">
+          <span onclick="document.getElementById('nearestSighting').style.display='none'"
+            class="w3-button w3-display-topright">&times;</span>
+          <div id="nearestSightingData">
+  
+          </div>
+        </div>
+      </div>
     </div>
 
+  <div style="height: calc(100% - 60px);">
+    <div id="chart"></div>
+  </div>
 
   <script>
     function myFunction() {
@@ -139,6 +88,7 @@
       }
     }
   </script>
+
 
   <script src="js/lionfish.js"></script>
 
