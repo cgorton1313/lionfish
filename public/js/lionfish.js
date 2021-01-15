@@ -79,9 +79,15 @@ async function getSightingInfo() {
 }
 
 async function showClosestSightings() {
-    let response = await fetch('./nearestSighting?limitAmount=10&userLat=42&userLon=-70');
+    let center = chart.getBounds().getCenter();
+    let userLat = center.lat;
+    let userLon = center.lng;
+
+    let response = await fetch(`./nearestSighting?limitAmount=10&userLat=${userLat}&userLon=${userLon}`);
     let sightings = await response.json();
     console.log(sightings);
+
+    // need to loop through here
     let tableContent = `
         <div>
             <table class="w3-table">
@@ -94,10 +100,11 @@ async function showClosestSightings() {
                     <td>42.1234</td>
                     <td>-70.4321</td>
                     <td>12 nm</td>
-            </tr>
+                </tr>
             </table>
         </div>
     `;
+    
     document.getElementById('nearestSighting').style.display = 'block';
     document.getElementById('nearestSightingData').innerHTML = tableContent;
 }
