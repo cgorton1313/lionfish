@@ -2,8 +2,6 @@ let chart;
 
 getUserPosition();
 
-
-
 function getUserPosition() {
     if (navigator.geolocation) {
         return navigator.geolocation.getCurrentPosition(loadChart, showError);
@@ -81,130 +79,34 @@ async function getSightingInfo() {
 }
 
 async function showClosestSightings() {
-    let response = await fetch('./sighting?id=' + this.options.sightingId);
-    let sighting = await response.json();
+    let response = await fetch('./nearestSighting?limitAmount=10&userLat=42&userLon=-70');
+    let sightings = await response.json();
+    console.log(sightings);
     let tableContent = `
         <div>
             <table class="w3-table">
-            <tr>
-                <th>${this.options.sightingId}</th>
-                <th>${sighting.Latitude}</th>
-                <th>${sighting.Longitude}</th>
-            </tr>
-            <tr>
-                <td> sighting 1</td>
-                <td>647368</td>
-                <td>637289</td>
-            </tr>
-            <tr>
-                <td> sighting 2</td>
-                <td>647368</td>
-                <td>637289</td>
-            </tr>
-            <tr>
-                <td> sighting 3</td>
-                <td>647368</td>
-                <td>637289</td>
-            </tr>
-            <tr>
-                <td> sighting 4</td>
-                <td>647368</td>
-                <td>637289</td>
-            </tr>
-            <tr>
-                <td> sighting 5</td>
-                <td>647368</td>
-                <td>637289</td>
-            </tr>
-            <tr>
-                <td> sighting 6</td>
-                <td>647368</td>
-                <td>637289</td>
-            </tr>
-            <tr>
-                <td> sighting 7</td>
-                <td>647368</td>
-                <td>637289</td>
-            </tr>
-            <tr>
-                <td> sighting 8</td>
-                <td>647368</td>
-                <td>637289</td>
-            </tr>
-            <tr>
-                <td> sighting 9</td>
-                <td>647368</td>
-                <td>637289</td>
-            </tr>
-            <tr>
-                <td> sighting 10</td>
-                <td>647368</td>
-                <td>637289</td>
+                <tr>
+                    <th>Lat</th>
+                    <th>Lon</th>
+                    <th>Dist</th>
+                </tr>
+                <tr>
+                    <td>42.1234</td>
+                    <td>-70.4321</td>
+                    <td>12 nm</td>
             </tr>
             </table>
         </div>
     `;
-    document.getElementById('table').style.display = 'block';
-    // document.getElementById('modalText').innerHTML = modalContent;
-
+    document.getElementById('nearestSighting').style.display = 'block';
+    document.getElementById('nearestSightingData').innerHTML = tableContent;
 }
 
-// <div>
-// <table class="w3-table">
-//   <tr>
-//     <th>sighting</th>
-//     <th>lat</th>
-//     <th>lon</th>
-//   </tr>
-//   <tr>
-//     <td> sighting 1</td>
-//     <td>647368</td>
-//     <td>637289</td>
-//   </tr>
-//   <tr>
-//     <td> sighting 2</td>
-//     <td>647368</td>
-//     <td>637289</td>
-//   </tr>
-//   <tr>
-//     <td> sighting 3</td>
-//     <td>647368</td>
-//     <td>637289</td>
-//   </tr>
-//   <tr>
-//     <td> sighting 4</td>
-//     <td>647368</td>
-//     <td>637289</td>
-//   </tr>
-//   <tr>
-//     <td> sighting 5</td>
-//     <td>647368</td>
-//     <td>637289</td>
-//   </tr>
-//   <tr>
-//     <td> sighting 6</td>
-//     <td>647368</td>
-//     <td>637289</td>
-//   </tr>
-//   <tr>
-//     <td> sighting 7</td>
-//     <td>647368</td>
-//     <td>637289</td>
-//   </tr>
-//   <tr>
-//     <td> sighting 8</td>
-//     <td>647368</td>
-//     <td>637289</td>
-//   </tr>
-//   <tr>
-//     <td> sighting 9</td>
-//     <td>647368</td>
-//     <td>637289</td>
-//   </tr>
-//   <tr>
-//     <td> sighting 10</td>
-//     <td>647368</td>
-//     <td>637289</td>
-//   </tr>
-// </table>
-// </div> */
+function showMobileNav() {
+    var x = document.getElementById("demo");
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else {
+        x.className = x.className.replace(" w3-show", "");
+    }
+}

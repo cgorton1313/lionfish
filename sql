@@ -1,2 +1,0 @@
-SELECT sighting_id, Latitude, Longitude, ROUND((((acos(sin((42 * pi()/180)) * sin((Latitude * pi()/180)) + cos((42 * pi()/180)) * cos((Latitude * pi()/180)) * cos(((-70 - Longitude) * pi()/180)))) * 180/pi()) * 60), 2) as distance 
-FROM penguinh_lionfish.sightings

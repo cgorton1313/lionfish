@@ -25,19 +25,17 @@
     <h1>Lionfish Tracker</h1>
   </div>
 
-  <!-- hide top row of nav bar -->
-  <!-- add color theme to all bars -->
-
+  <!-- Desktop navbar -->
   <div class="w3-bar w3-theme-d4">
     <a href="#" class="w3-bar-item w3-button">Home</a>
-
-    <a href="#" class="w3-bar-item w3-button w3-hide-small" onclick= "showClosestSightings()">Find Fish</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small" onclick="showClosestSightings()">Find Fish</a>
     <a href="javascript:void(0)" class="w3-bar-item w3-button w3-theme-d4 w3-right w3-hide-large w3-hide-medium"
-      onclick="myFunction()">&#9776;</a>
+      onclick="showMobileNav()">&#9776;</a>
   </div>
 
+  <!-- Mobile navbar -->
   <div id="demo" class="w3-bar-block w3-theme-14 w3-hide w3-hide-large w3-hide-medium">
-    <a href="#" class="w3-bar-item w3-button"onclick= "showClosestSightings()">Find Fish</a>
+    <a href="#" class="w3-bar-item w3-button" onclick="showClosestSightings()">Find Fish</a>
   </div>
 
   <div id="locationMessage" class="w3-show w3-container w3-panel">
@@ -45,53 +43,36 @@
       location.</h4>
   </div>
 
-  <!-- BUTTON TO OPEN MODAL <button onclick="document.getElementById('sightingModal').style.display='block'"
-  class="w3-button">Open Modal</button> -->
-
-  <!-- The Modal -->
+  <!-- Sighting Data Modal -->
   <div id="sightingModal" class="w3-modal">
     <div class="w3-modal-content">
       <div class="w3-container">
         <span onclick="document.getElementById('sightingModal').style.display='none'"
           class="w3-button w3-display-topright">&times;</span>
         <div id="modalText">
-
         </div>
       </div>
     </div>
   </div>
 
-    <!-- The Modal -->
-    <div id="nearestSighting" class="w3-modal">
-      <div class="w3-modal-content">
-        <div class="w3-container">
-          <span onclick="document.getElementById('nearestSighting').style.display='none'"
-            class="w3-button w3-display-topright">&times;</span>
-          <div id="nearestSightingData">
-  
-          </div>
+  <!-- Nearest Sightings Modal -->
+  <div id="nearestSighting" class="w3-modal">
+    <div class="w3-modal-content">
+      <div class="w3-container">
+        <span onclick="document.getElementById('nearestSighting').style.display='none'"
+          class="w3-button w3-display-topright">&times;</span>
+        <div id="nearestSightingData">
         </div>
       </div>
     </div>
+  </div>
 
+  <!-- Chart -->
   <div style="height: calc(100% - 60px);">
     <div id="chart"></div>
   </div>
 
-  <script>
-    function myFunction() {
-      var x = document.getElementById("demo");
-      if (x.className.indexOf("w3-show") == -1) {
-        x.className += " w3-show";
-      } else {
-        x.className = x.className.replace(" w3-show", "");
-      }
-    }
-  </script>
-
-
   <script src="js/lionfish.js"></script>
-
 
 </body>
 
