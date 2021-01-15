@@ -25,6 +25,11 @@ app.get('/nearestSighting', async function (req, res) {
     res.json(await lionfishData.getClosestSightings(req.query.limitAmount, req.query.userLat, req.query.userLon));
 });
 
+app.get('/nearestSighting', async function (req, res) {
+    res.json(await lionfishData.showClosestSightings(req.query.limitAmount, req.query.userLat, req.query.userLon));
+});
+
 app.listen(config.app.port, () => {
     console.log(`Lionfish server listening on port ${ config.app.port }`);
 });
+
