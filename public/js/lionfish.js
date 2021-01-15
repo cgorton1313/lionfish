@@ -70,8 +70,12 @@ function putSightingsOnChart(sightings) {
 async function getSightingInfo() {
     let response = await fetch('./sighting?id=' + this.options.sightingId);
     let sighting = await response.json();
+    let modalContent = `
+        <p>Latitude: ${sighting.Latitude}</p>
+        <p>Longitude: ${sighting.Longitude}</p>
+    `;
     console.log(sighting);
-    // document.getElementById('sightingModal').style.display = 'block';
-    // let modalContent = 'Latitude: ' + this.options.sighting.latitude + 'Longitude: ' + this.options.sighting.longitude;
-    // document.getElementById('modalP').innerHTML = modalContent;
+    document.getElementById('sightingModal').style.display = 'block';
+    modalContent;
+    document.getElementById('modalText').innerHTML = modalContent;
 }
