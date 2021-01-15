@@ -15,10 +15,9 @@ async function getSighting(id) {
     return result[0];
 }
 
-async function get10ClosestSightings(userLat, userLon) {
-    let sql = ` SELECT sighting_id, Latitude, Longitude, ROUND((((acos(sin((${userLat} * pi()/180)) * sin((Latitude * pi()/180)) + cos((${userLat} * pi()/180)) * cos((Latitude * pi()/180)) * cos(((${userLon} - Longitude) * pi()/180)))) * 180/pi()) * 60), 2) as distance FROM penguinh_lionfish.sightings ORDER BY distance LIMIT 10`
+async function getClosestSightings(limitAmount, userLat, userLon) {
+    let sql = ` SELECT sighting_id, Latitude, Longitude, ROUND((((acos(sin((${userLat} * pi()/180)) * sin((Latitude * pi()/180)) + cos((${userLat} * pi()/180)) * cos((Latitude * pi()/180)) * cos(((${userLon} - Longitude) * pi()/180)))) * 180/pi()) * 60), 2) as distance FROM penguinh_lionfish.sightings ORDER BY distance LIMIT ${limitAmount}`
     let result = await getQueryData(sql);
-    //sort distance and then get the 10 closest
     return result;
 }
 
@@ -60,5 +59,5 @@ async function getQueryData(sql) {
 }
 
 module.exports = {
-    getSighting, getSightings, get10ClosestSightings
+    getSighting, getSightings, getClosestSightings
 }

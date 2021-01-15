@@ -22,7 +22,7 @@ app.get('/sighting', async function (req, res) {
 });
 
 app.get('/nearestSighting', async function (req, res) {
-    res.json(await lionfishData.get10ClosestSightings(req.query.userLat, req.query.userLon));
+    res.json(await lionfishData.getClosestSightings(req.query.limitAmount, req.query.userLat, req.query.userLon));
 });
 
 app.listen(config.app.port, () => {
