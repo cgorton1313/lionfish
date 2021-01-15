@@ -79,3 +79,132 @@ async function getSightingInfo() {
     modalContent;
     document.getElementById('modalText').innerHTML = modalContent;
 }
+
+async function showClosestSightings() {
+    let response = await fetch('./sighting?id=' + this.options.sightingId);
+    let sighting = await response.json();
+    let tableContent = `
+        <div>
+            <table class="w3-table">
+            <tr>
+                <th>${this.options.sightingId}</th>
+                <th>${sighting.Latitude}</th>
+                <th>${sighting.Longitude}</th>
+            </tr>
+            <tr>
+                <td> sighting 1</td>
+                <td>647368</td>
+                <td>637289</td>
+            </tr>
+            <tr>
+                <td> sighting 2</td>
+                <td>647368</td>
+                <td>637289</td>
+            </tr>
+            <tr>
+                <td> sighting 3</td>
+                <td>647368</td>
+                <td>637289</td>
+            </tr>
+            <tr>
+                <td> sighting 4</td>
+                <td>647368</td>
+                <td>637289</td>
+            </tr>
+            <tr>
+                <td> sighting 5</td>
+                <td>647368</td>
+                <td>637289</td>
+            </tr>
+            <tr>
+                <td> sighting 6</td>
+                <td>647368</td>
+                <td>637289</td>
+            </tr>
+            <tr>
+                <td> sighting 7</td>
+                <td>647368</td>
+                <td>637289</td>
+            </tr>
+            <tr>
+                <td> sighting 8</td>
+                <td>647368</td>
+                <td>637289</td>
+            </tr>
+            <tr>
+                <td> sighting 9</td>
+                <td>647368</td>
+                <td>637289</td>
+            </tr>
+            <tr>
+                <td> sighting 10</td>
+                <td>647368</td>
+                <td>637289</td>
+            </tr>
+            </table>
+        </div>
+    `;
+    document.getElementById('table').style.display = 'block';
+    // document.getElementById('modalText').innerHTML = modalContent;
+
+}
+
+// <div>
+// <table class="w3-table">
+//   <tr>
+//     <th>sighting</th>
+//     <th>lat</th>
+//     <th>lon</th>
+//   </tr>
+//   <tr>
+//     <td> sighting 1</td>
+//     <td>647368</td>
+//     <td>637289</td>
+//   </tr>
+//   <tr>
+//     <td> sighting 2</td>
+//     <td>647368</td>
+//     <td>637289</td>
+//   </tr>
+//   <tr>
+//     <td> sighting 3</td>
+//     <td>647368</td>
+//     <td>637289</td>
+//   </tr>
+//   <tr>
+//     <td> sighting 4</td>
+//     <td>647368</td>
+//     <td>637289</td>
+//   </tr>
+//   <tr>
+//     <td> sighting 5</td>
+//     <td>647368</td>
+//     <td>637289</td>
+//   </tr>
+//   <tr>
+//     <td> sighting 6</td>
+//     <td>647368</td>
+//     <td>637289</td>
+//   </tr>
+//   <tr>
+//     <td> sighting 7</td>
+//     <td>647368</td>
+//     <td>637289</td>
+//   </tr>
+//   <tr>
+//     <td> sighting 8</td>
+//     <td>647368</td>
+//     <td>637289</td>
+//   </tr>
+//   <tr>
+//     <td> sighting 9</td>
+//     <td>647368</td>
+//     <td>637289</td>
+//   </tr>
+//   <tr>
+//     <td> sighting 10</td>
+//     <td>647368</td>
+//     <td>637289</td>
+//   </tr>
+// </table>
+// </div> */
