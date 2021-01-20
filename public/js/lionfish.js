@@ -71,7 +71,13 @@ async function getSightingInfo() {
     let modalContent = `
         <p>Latitude: ${sighting.Latitude}</p>
         <p>Longitude: ${sighting.Longitude}</p>
+        <p>Date: ${sighting.Year}/${sighting.Month}/${sighting.Day}</p>
+        <p>Accuracy: ${sighting.Accuracy}</p>
     `;
+    if (sighting.Comments.length != 0) {
+        modalContent += `<p>Comments: ${sighting.Comments}</p>`;
+    }
+
     console.log(sighting);
     document.getElementById('sightingModal').style.display = 'block';
     modalContent;
