@@ -85,7 +85,6 @@ async function showClosestSightings() {
 
     let response = await fetch(`./nearestSighting?limitAmount=10&userLat=${userLat}&userLon=${userLon}`);
     let sightings = await response.json();
-    console.log(sightings);
 
     // need to loop through here
     let tableContent = `
@@ -96,15 +95,23 @@ async function showClosestSightings() {
                     <th>Lon</th>
                     <th>Dist</th>
                 </tr>
-                <tr>
-                    <td>42.1234</td>
-                    <td>-70.4321</td>
-                    <td>12 nm</td>
-                </tr>
+                `
+
+    for (let i = 0; i < sightings.length; i++) {
+        tableContent += `
+            <tr>
+                <td>${sightings[i].Latitude}</td>
+                <td>${sightings[i].Longitude}</td>
+                <td>${sightings[i].distance} nm</td>
+            </tr>
+        `;
+    }
+
+    tableContent += `
             </table>
         </div>
     `;
-    
+
     document.getElementById('nearestSighting').style.display = 'block';
     document.getElementById('nearestSightingData').innerHTML = tableContent;
 }
