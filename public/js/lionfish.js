@@ -1,5 +1,9 @@
 let chart;
 
+let userPositionIcon = L.icon({
+    iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png',
+});
+
 getUserPosition();
 
 function getUserPosition() {
@@ -20,12 +24,13 @@ function loadChart(position, zoomLevel = 13) {
     }).setView([userLat, userLon], zoomLevel);
     L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/Ocean_Basemap/MapServer/tile/{z}/{y}/{x}', {
     }).addTo(chart);
-    L.marker([userLat, userLon]).addTo(chart);
+    L.marker([userLat, userLon], {icon: userPositionIcon}).addTo(chart);
     getSightings().then(putSightingsOnChart);
     document.getElementById("locationMessage").setAttribute('class', 'w3-hide');
 }
 
 function showError(error) {
+    console.log('Error');
     switch (error.code) {
         case error.PERMISSION_DENIED:
             console.log("User denied the request for Geolocation.");
