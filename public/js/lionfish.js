@@ -1,7 +1,7 @@
 let chart;
 
 // Icons
-var LeafIcon = L.Icon.extend({
+let LeafIcon = L.Icon.extend({
     options: {
         shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
         iconSize: [25, 41],
@@ -68,7 +68,8 @@ function putSightingsOnChart(sightings) {
         showCoverageOnHover: true,
         zoomToBoundsOnClick: true,
         spiderfyOnMaxZoom: false,
-        removeOutsideVisibleBounds: true
+        removeOutsideVisibleBounds: true,
+        disableClusteringAtZoom: 20
     });
     for (let i = 0; i < sightings.length; i++) {
         let marker = L.marker([sightings[i].Latitude, sightings[i].Longitude], { sightingId: sightings[i].sighting_id });
