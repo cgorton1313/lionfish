@@ -3,3 +3,9 @@ node_modules/
 
 # this file has sensitive data
 config.js
+
+# annoying MacOS file
+.DS_Store
+
+# our logs
+lionfish.log

@@ -2,6 +2,12 @@ const config = require(__dirname + '/config.js');
 const lionfishData = require(__dirname + '/lionfishData.js');
 const express = require('express');
 const path = require('path');
+const SimpleNodeLogger = require('simple-node-logger'),
+    opts = {
+        logFilePath: 'lionfish.log',
+        timestampFormat: 'YYYY-MM-DD HH:mm:ss.SSS'
+    },
+    log = SimpleNodeLogger.createSimpleLogger(opts);
 
 const app = express();
 
@@ -30,5 +36,5 @@ app.get('/nearestSighting', async function (req, res) {
 
 // starts the app
 app.listen(config.app.port, () => {
-    console.log(`Lionfish server listening on port ${ config.app.port }`);
+    log.info(`Lionfish server listening on port ${config.app.port}`);
 });
