@@ -109,6 +109,7 @@ async function showClosestSightings() {
     // need to loop through here
     let tableContent = `
         <div>
+            <h4>Closest 10 sightings to center of map:</h4>
             <table class="w3-table">
                 <tr>
                     <th>Lat</th>
