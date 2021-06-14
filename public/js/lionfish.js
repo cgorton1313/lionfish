@@ -30,7 +30,7 @@ function loadChart(position, zoomLevel = 13) {
         minZoom: 0,
         maxZoom: 20
     }).setView([userLat, userLon], zoomLevel);
-    L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/Ocean_Basemap/MapServer/tile/{z}/{y}/{x}', {
+    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Ocean_Basemap/MapServer/tile/{z}/{y}/{x}', {
     }).addTo(chart);
     L.marker([userLat, userLon], {icon: userPositionIcon}).addTo(chart).bindPopup('Start here').openPopup();
     getSightings().then(putSightingsOnChart);
