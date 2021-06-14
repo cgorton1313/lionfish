@@ -9,19 +9,32 @@ const SimpleNodeLogger = require('simple-node-logger'),
     log = SimpleNodeLogger.createSimpleLogger(opts);
 
 async function getSightings() {
-    let sql = 'SELECT Latitude, Longitude, sighting_id FROM `penguinh_lionfish`.`sightings`';
+    // this query de-dupes based on exact lat/lon and day
+    let sql = `
+        SELECT sighting_id, Latitude, Longitude
+        FROM sightings
+        GROUP BY Latitude, Longitude, Year, Month, Day`;
     let result = await getQueryData(sql);
     return result;
 }
 
 async function getSighting(id) {
-    let sql = `SELECT sighting_id, SpecimenNumber, Country, State, Locality, Latitude, Longitude, Source, Accuracy, DrainageName, HUC8Number, Year, Month, Day, Status, Comments, record_type FROM sightings WHERE sighting_id =  `+ id;
+    let sql = `
+        SELECT sighting_id, SpecimenNumber, Country, State, Locality, Latitude, Longitude, Source, Accuracy, DrainageName, HUC8Number, Year, Month, Day, Status, Comments, record_type
+        FROM sightings
+        WHERE sighting_id =  ` + id;
     let result = await getQueryData(sql);
     return result[0];
 }
 
 async function getClosestSightings(limitAmount, userLat, userLon) {
-    let sql = ` SELECT sighting_id, Latitude, Longitude, ROUND((((acos(sin((${userLat} * pi()/180)) * sin((Latitude * pi()/180)) + cos((${userLat} * pi()/180)) * cos((Latitude * pi()/180)) * cos(((${userLon} - Longitude) * pi()/180)))) * 180/pi()) * 60), 2) as distance FROM penguinh_lionfish.sightings ORDER BY distance LIMIT ${limitAmount}`
+    // this query de-dupes 
+    let sql = `
+        SELECT sighting_id, Latitude, Longitude, ROUND((((acos(sin((${userLat} * pi()/180)) * sin((Latitude * pi()/180)) + cos((${userLat} * pi()/180)) * cos((Latitude * pi()/180)) * cos(((${userLon} - Longitude) * pi()/180)))) * 180/pi()) * 60), 2) AS distance
+        FROM sightings
+        GROUP BY Latitude, Longitude
+        ORDER BY distance ASC
+        LIMIT ${limitAmount}`;
     let result = await getQueryData(sql);
     return result;
 }
